@@ -1,4 +1,4 @@
-package com.architecture.demo.lifecycle;
+package com.architecture.demo;
 
 import android.arch.lifecycle.Lifecycle;
 import android.os.Bundle;
@@ -6,8 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
-import com.architecture.demo.CONSTANT;
-import com.architecture.demo.R;
+import com.architecture.demo.lifecycle.MyObserver;
+import com.architecture.demo.util.CONSTANT;
+import com.architecture.demo.util.Utils;
 
 public class LifecycleActivity extends AppCompatActivity {
     MyObserver myObserver;
@@ -22,6 +23,7 @@ public class LifecycleActivity extends AppCompatActivity {
 
     public void getState(View view) {
         Lifecycle.State currentState = myObserver.getCurrentState();
+        Utils.showToast(getApplicationContext(), "state_" + currentState);
         Log.i(CONSTANT.TAG_LIFECYCLE, "state_" + currentState);
     }
 }

@@ -9,6 +9,13 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        //指定room.schemaLocation生成的文件路径
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
     }
     buildTypes {
         release {
@@ -16,15 +23,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0-rc02'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //数据库查看工具
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.4'
+
     def lifecycle_version = "1.1.1"
     // ViewModel and LiveData
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
@@ -45,4 +61,34 @@ dependencies {
 
     // optional - Test helpers for LiveData
     testImplementation "android.arch.core:core-testing:$lifecycle_version"
+    //room
+    implementation "android.arch.persistence.room:runtime:$lifecycle_version"
+    annotationProcessor "android.arch.persistence.room:compiler:$lifecycle_version" // use kapt for Kotlin
+
+    // optional - RxJava support for Room
+    implementation "android.arch.persistence.room:rxjava2:$lifecycle_version"
+
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    implementation "android.arch.persistence.room:guava:$lifecycle_version"
+
+    // Test helpers
+    testImplementation "android.arch.persistence.room:testing:$lifecycle_version"
+
+    def paging_version = "1.0.1"
+    implementation "android.arch.paging:runtime:$paging_version"
+
+    // alternatively - without Android dependencies for testing
+    testImplementation "android.arch.paging:common:$paging_version"
+
+    // optional - RxJava support, currently in release candidate
+    implementation "android.arch.paging:rxjava2:1.0.1"
+
+    def work_version = "1.0.0-alpha08"
+    implementation "android.arch.work:work-runtime:$work_version" // use -ktx for Kotlin
+
+    // optional - Firebase JobDispatcher support
+    implementation "android.arch.work:work-firebase:$work_version"
+
+    // optional - Test helpers
+    androidTestImplementation "android.arch.work:work-testing:$work_version"
 }

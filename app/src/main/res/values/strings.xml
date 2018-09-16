@@ -1,5 +1,30 @@
 <resources>
     <string name="app_name">ArchitectureDemo</string>
+    <string name="data_binding">dataBinding</string>
     <string name="lifecycle">lifecycle</string>
+    <string name="live_data">liveData</string>
+    <string name="view_model">viewModel</string>
+    <string name="room">room</string>
+    <string name="worker">worker</string>
+    <string name="paging">paging</string>
     <string name="get_sate">getState</string>
+    <string name="change_name">changeName</string>
+    <string name="change_list">changeList</string>
+    <string name="register_net_status">监听网络变化</string>
+    <string name="unregister_net_status">取消监听网络变化</string>
+    <string name="create_db">create_db</string>
+    <string name="add_class">add_class</string>
+    <string name="add10student">add10stu</string>
+    <string name="add_student">add_Stu</string>
+    <string name="del_all_stu">delAllStu</string>
+    <string name="first_name">firstName:</string>
+    <string name="last_name">---lastName:</string>
+    <string name="deleteFile">deleteFile</string>
+    <string name="startOneTimeWorkRequest">startOneTimeWorkRequest</string>
+    <string name="startPeriodicWorkRequest">startPeriodicWorkRequest</string>
+    <string name="cancelPeriodicWorkRequest">cancelPeriodicWorkRequest</string>
+    <string name="startContinuation">startContinuation</string>
+    <string name="startMultiContinuation">startMultiContinuation</string>
+    <string name="startConstraints">startConstraints</string>
+
 </resources>

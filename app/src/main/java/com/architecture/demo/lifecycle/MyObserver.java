@@ -5,12 +5,12 @@ import android.arch.lifecycle.LifecycleObserver;
 import android.arch.lifecycle.OnLifecycleEvent;
 import android.util.Log;
 
-import com.architecture.demo.CONSTANT;
+import com.architecture.demo.util.CONSTANT;
 
 public class MyObserver implements LifecycleObserver {
     private final Lifecycle lifecycle;
 
-    MyObserver(Lifecycle lifecycle) {
+    public MyObserver(Lifecycle lifecycle) {
         this.lifecycle = lifecycle;
     }
 
