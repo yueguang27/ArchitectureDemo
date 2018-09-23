@@ -8,7 +8,7 @@ import android.util.Log;
 import com.architecture.demo.util.CONSTANT;
 
 public class MyObserver implements LifecycleObserver {
-    private final Lifecycle lifecycle;
+    private Lifecycle lifecycle;
 
     public MyObserver(Lifecycle lifecycle) {
         this.lifecycle = lifecycle;
@@ -16,7 +16,7 @@ public class MyObserver implements LifecycleObserver {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     protected void onCreate() {
-        Log.i(CONSTANT.TAG_LIFECYCLE, "onCreate");
+        Log.i(CONSTANT.TAG_LIFECYCLE, "MyObserver_onCreate");
 
         Lifecycle.State currentState = getCurrentState();
         Log.i(CONSTANT.TAG_LIFECYCLE, "state_" + currentState);
@@ -24,27 +24,27 @@ public class MyObserver implements LifecycleObserver {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     protected void onStart() {
-        Log.i(CONSTANT.TAG_LIFECYCLE, "onStart");
+        Log.i(CONSTANT.TAG_LIFECYCLE, "MyObserver_onStart");
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     protected void onResume() {
-        Log.i(CONSTANT.TAG_LIFECYCLE, "onResume");
+        Log.i(CONSTANT.TAG_LIFECYCLE, "MyObserver_onResume");
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     protected void onPause() {
-        Log.i(CONSTANT.TAG_LIFECYCLE, "onPause");
+        Log.i(CONSTANT.TAG_LIFECYCLE, "MyObserver_onPause");
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     protected void onStop() {
-        Log.i(CONSTANT.TAG_LIFECYCLE, "onStop");
+        Log.i(CONSTANT.TAG_LIFECYCLE, "MyObserver_onStop");
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     protected void onDestroy() {
-        Log.i(CONSTANT.TAG_LIFECYCLE, "onDestroy");
+        Log.i(CONSTANT.TAG_LIFECYCLE, "MyObserver_onDestroy");
     }
 
     public Lifecycle.State getCurrentState() {
