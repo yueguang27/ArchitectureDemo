@@ -16,9 +16,6 @@ import com.architecture.demo.util.Utils;
 
 import java.lang.ref.WeakReference;
 
-/**
- * Created by cym on 18-9-10.
- */
 public class NetWorkLiveData extends LiveData<Integer> {
     private WeakReference<Context> mContextWeakReference;
     private static NetWorkLiveData mData;

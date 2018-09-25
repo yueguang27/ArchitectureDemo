@@ -11,15 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.architecture.demo.util.CONSTANT;
 import com.architecture.demo.R;
+import com.architecture.demo.util.CONSTANT;
 
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Created by cym on 18-9-11.
- */
 public class Fragment extends android.support.v4.app.Fragment implements View.OnClickListener {
     private MViewModel mMViewModel;
     TextView textView;

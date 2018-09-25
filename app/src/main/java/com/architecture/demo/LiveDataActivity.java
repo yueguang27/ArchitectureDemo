@@ -32,6 +32,7 @@ public class LiveDataActivity extends AppCompatActivity {
         initData();
     }
 
+    //Demo1
     private void initData() {
         mDataFetch = new DataFetch();
         mDataFetch.getCurrentName().observe(this, new Observer<String>() {
@@ -39,7 +40,7 @@ public class LiveDataActivity extends AppCompatActivity {
             public void onChanged(@Nullable String s) {
                 text.setText(s);
             }
-        }); // 订阅LiveData中当前Name数据变化
+        }); // 注册观察者，观察LiveData持有的数据变化并做出响应
         mDataFetch.getNameList().observe(this, new Observer<List<String>>() {
             @Override
             public void onChanged(@Nullable List<String> strings) {
@@ -51,7 +52,7 @@ public class LiveDataActivity extends AppCompatActivity {
                 }
                 Log.i(CONSTANT.TAG_LIVE_DATA, tmp.toString());
             }
-        }); // 订阅LiveData中Name列表数据变化
+        }); // 注册观察者，观察LiveData持有的数据变化并做出响应
     }
 
     public void changeName(View view) {
@@ -68,6 +69,7 @@ public class LiveDataActivity extends AppCompatActivity {
         NUM++;
     }
 
+    //Demo2
     public void registerNetStatus(View view) {
         NetWorkLiveData.getInstance(getApplicationContext()).observe(this, new Observer<Integer>() {
             @Override

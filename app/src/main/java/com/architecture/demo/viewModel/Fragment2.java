@@ -14,9 +14,6 @@ import android.widget.TextView;
 import com.architecture.demo.util.CONSTANT;
 import com.architecture.demo.R;
 
-/**
- * Created by cym on 18-9-11.
- */
 public class Fragment2 extends android.support.v4.app.Fragment {
     TextView textView;
 

@@ -10,9 +10,6 @@ import com.architecture.demo.util.CONSTANT;
 
 import java.util.Map;
 
-/**
- * Created by cym on 18-9-9.
- */
 public class MViewModel extends AndroidViewModel {
     private MutableLiveData<Map<String, String>> mLanguage;
     private MutableLiveData<String> mLanguageDes;
