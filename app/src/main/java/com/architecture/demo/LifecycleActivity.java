@@ -35,6 +35,12 @@ public class LifecycleActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(CONSTANT.TAG_LIFECYCLE, "LifecycleActivity_onPause");
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         Log.i(CONSTANT.TAG_LIFECYCLE, "LifecycleActivity_onStop");
