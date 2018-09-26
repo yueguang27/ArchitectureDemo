@@ -37,8 +37,7 @@
             android:name=".LiveDataActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ViewModelActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ViewModelActivity"/>
         <activity
             android:name=".RoomAndPagingActivity"
             android:screenOrientation="portrait" />

@@ -2,6 +2,7 @@ package com.architecture.demo.viewModel;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -22,9 +23,17 @@ public class Fragment extends android.support.v4.app.Fragment implements View.On
     TextView textView;
     TextView textView1;
     TextView textView2;
+    TextView textView3;
+    private String des;
 
     public static Fragment getInstance() {
         return new Fragment();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.i(CONSTANT.TAG_VIEW_MODEL, "Fragment_onCreate:");
     }
 
     @Nullable
@@ -34,9 +43,12 @@ public class Fragment extends android.support.v4.app.Fragment implements View.On
         textView = view.findViewById(R.id.text);
         textView1 = view.findViewById(R.id.text1);
         textView2 = view.findViewById(R.id.text2);
+        textView3 = view.findViewById(R.id.text3);
         textView.setOnClickListener(this);
         textView1.setOnClickListener(this);
         textView2.setOnClickListener(this);
+        textView3.setText(des);
+        Log.i(CONSTANT.TAG_VIEW_MODEL, "Fragment_onCreateView_des:" + des);
         initViewModel();
         return view;
     }
@@ -87,5 +99,20 @@ public class Fragment extends android.support.v4.app.Fragment implements View.On
             textView2.setSelected(true);
         }
         mMViewModel.getLanguageDes().setValue(tag);
+        des = tag;
+        textView3.setText(des);
+        Log.i(CONSTANT.TAG_VIEW_MODEL, "Fragment_onClick:des:" + des);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.i(CONSTANT.TAG_VIEW_MODEL, "Fragment_onConfigurationChanged:");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i(CONSTANT.TAG_VIEW_MODEL, "Fragment_onDestroy");
     }
 }

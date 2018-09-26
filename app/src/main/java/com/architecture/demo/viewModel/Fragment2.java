@@ -2,6 +2,7 @@ package com.architecture.demo.viewModel;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,14 +12,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.architecture.demo.util.CONSTANT;
 import com.architecture.demo.R;
+import com.architecture.demo.util.CONSTANT;
 
 public class Fragment2 extends android.support.v4.app.Fragment {
     TextView textView;
 
     public static Fragment2 getInstance() {
         return new Fragment2();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.i(CONSTANT.TAG_VIEW_MODEL, "Fragment2_onCreate:");
     }
 
     @Nullable
@@ -37,8 +44,21 @@ public class Fragment2 extends android.support.v4.app.Fragment {
         mMViewModel.getLanguageDes().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String des) {
+                Log.i(CONSTANT.TAG_VIEW_MODEL, "Fragment2_onChanged:" + des);
                 textView.setText(des);
             }
         });
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.i(CONSTANT.TAG_VIEW_MODEL, "Fragment2_onConfigurationChanged:");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i(CONSTANT.TAG_VIEW_MODEL, "Fragment2_onDestroy");
     }
 }
